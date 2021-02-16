@@ -1,0 +1,153 @@
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+}
+
+$SPACINGS : 0,
+1,
+2,
+3,
+4,
+5,
+6,
+7,
+8,
+9,
+10;
+$GRID_SIZES :'auto',
+true,
+1,
+2,
+3,
+4,
+5,
+6,
+7,
+8,
+9,
+10,
+11,
+12;
+
+$bp: "xs",
+"sm",
+"md",
+"lg",
+"xl";
+
+@each $poin in $bp {
+  @each $size in $GRID_SIZES {
+
+    //flex: [flex-grow] [flex-shrink] [flex-basis];
+    .item-#{$poin}-#{$size} {
+      @if $size==true {
+        @include media-breakpoint-up($poin) {
+          flex-basis: 0;
+          flex-grow: 1;
+          max-width: 100%;
+        }
+      }
+
+      @else if $size=='auto' {
+        @include media-breakpoint-up($poin) {
+          flex-basis: auto;
+          flex-grow: 0;
+          max-width: none;
+        }
+      }
+
+      @else {
+        @include media-breakpoint-up($poin) {
+          $width: $size/12*100000000/1000000;
+          flex-basis: $width*1%;
+          flex-grow: 0;
+          max-width: $width*1%;
+        }
+      }
+    }
+  }
+}
+
+@each $space in $SPACINGS {
+  @if $space==0 {}
+
+  .grid-#{$space} {
+
+    margin: -($space*4px);
+    width: calc(100% + #{$space*8px});
+
+    &>.item {
+      padding: $space*4px;
+    }
+  }
+}
+
+.content-carousel {
+  position: relative;
+  width: 100%;
+  max-height: 821px;
+
+  &__caption {
+    position: absolute;
+    top: 0;
+    background: linear-gradient(0deg, rgba(35, 167, 56, 0.41) 0%, rgba(255, 255, 255, 0) 100%);
+    width: 100%;
+    height: 100%;
+  }
+
+  &__wrap {
+    max-width: 875px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  &__title {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 36px;
+  }
+
+  &__desc {
+    text-align: center;
+    font-size: 27px;
+    font-weight: 400;
+    color: #fff;
+  }
+}
+
+.benner {
+  background-color: #000;
+  color: #fff;
+  padding: 18px 28px;
+  font-size: 15px;
+  font-weight: 500;
+  margin-top: -8px;
+
+  &-author {
+    font-size: 12px;
+    font-weight: 300;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
+.owl-theme .owl-nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+}
+#small-carousel{
+  padding: 0 32px;
+}

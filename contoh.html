@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="nama-id" class="owl-carousel owl-theme">
+    <!-- ini isi dari slider start -->
+    <div class="paper py-4 px-5">
+      <div class="d-flex align-items-center">
+        <div class="item partner-img mr-5 item-md-auto">
+          <img src="/assets/img/partner-1.png" alt="">
+        </div>
+        <div class="item  item-md-true">
+          <p>DINAS KEBUDAYAAN
+            KOTA YOGYAKARTA</p>
+        </div>
+      </div>
+    </div>
+    <!-- end -->
+  </div>
+  <script>
+    $(document).ready(function () {
+      $("#nama-id").owlCarousel();
+    });
+    $('#nama-id').owlCarousel({
+      loop: true,
+      margin: 10,
+      responsiveClass: true,
+      navText: ['<span><i class="bx bxs-chevron-left" ></i></span>',
+        '<span><i class="bx bxs-chevron-right"></i></span>'
+      ],
+      responsive: {
+        0: {
+          items: 1,
+          nav: true
+        },
+        768: {
+          items: 3,
+          nav: true
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
+<!-- Javascript nya  -->
+<!-- ubah #nama-id , samakan dengan "nama-id" yang ada di html -->

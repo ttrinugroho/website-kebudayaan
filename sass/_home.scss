@@ -96,7 +96,7 @@
 .jss {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  flex-wrap: wrap;
 
   &-info {
     background-color: rgba(164, 229, 175, 1);
@@ -375,13 +375,17 @@
 }
 
 .partner-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
   height: 102px;
 }
 
 .fz-85 {
   font-size: 85px;
   line-height: 0;
-  color:#fff;
+  color: #fff;
 }
 
 .fz-20 {
@@ -398,6 +402,10 @@
 
 .fw-400 {
   font-weight: 400;
+}
+
+.nav-link {
+  text-transform: uppercase;
 }
 
 $dropdown-dark-color: $gray-300 !default;
